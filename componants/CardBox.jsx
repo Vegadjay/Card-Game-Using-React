@@ -24,7 +24,7 @@ function CardBox({ bombCount = 1 }) {
 
   return (
     <div className="box">
-      <div className="container">
+      <div className="container box-side">
         {gameCards.map((card, index) => (
           <Card key={index} imgs={card} id={card.id} click={handleClick} />
         ))}

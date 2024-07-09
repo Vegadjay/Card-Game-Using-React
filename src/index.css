@@ -10,26 +10,49 @@
   gap: 1em;
 }
 .card-info {
+  height: 110px;
+  width: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background-color: #363636;
+  background-color: rgb(47, 69, 83);
+  border-bottom: 6px solid rgb(33, 55, 67);
 }
 .card-info:hover {
-  transform: scaleY(-10deg);
-  color: blue;
+  transform: translateY(-7px);
+  background-color: aliceblue;
 }
 #img {
   max-width: 80%;
   min-width: 80%;
   transform: scale(0);
 }
-.card-info {
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
-}
 
 .card-info img {
   backface-visibility: hidden;
+}
+
+.componants {
+  background-color: rgb(15, 33, 46);
+  height: 1000px;
+  width: 1200px;
+  padding: 20px;
+}
+.side-bar {
+  background-color: rgb(33, 55, 67);
+}
+.input-area {
+  background-color: rgb(15, 33, 46);
+}
+.drop-down {
+  background-color: rgb(15, 33, 46);
+}
+.buttons-for-color {
+  background-color: rgb(47, 69, 83);
+}
+.box-side {
+  height: auto;
+  width: auto;
+  margin-left: -540px;
 }
