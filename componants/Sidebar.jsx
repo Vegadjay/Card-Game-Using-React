@@ -1,75 +1,68 @@
-//! Adding bitcoin svg and continue work.........
-
+import { useState } from "react";
 import bitcoin from "../imgs/bitcoin.svg";
+import CardBox from "./CardBox";
 import "../src/index.css";
-function Sidebar() {
+
+function Sidebar({ bombcount, setBombcount }) {
+  const [bombcount1, setBombcount1] = useState(1);
+  function countBomb(event) {
+    const newValue = Number(event.target.value);
+    console.log("New value selected:", newValue);
+    setBombcount1(newValue);
+  }
   return (
     <>
-      <div className="side-bar w-96">
-        <div className="input-boxex">
-          <div className="side-bar-name mt-6 flex justify-between w-80">
-            <span className="ml-6">Bet Amount</span>
-            <span>0.00</span>
-          </div>
-          <br />
-          <div className="h-12 w-72 ml-6 flex justify-center">
-            <div className="input-box-with-bitcoin">
-              <input
-                type="number"
-                className="input-area ml-6 mt-1 text-white h-10"
-              />
-              {/* Adding Bitcoin Image here */}
+      <div className="side-bar bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div className="input-boxes">
+          <div className="amount-div mb-6">
+            <div className="side-bar-name flex justify-between items-center mb-2">
+              <span className="text-gray-300">Bet Amount</span>
+              <span className="text-gray-300">$0.00</span>
             </div>
-            <div className="buttons-for-color mt-1 h-10 flex justify-center">
-              <button className="bg-transparent p-1 text-xs font-bold h-10 w-8 rounded">
-                1/2
-              </button>
-              <span className="mt-2 cursor-pointer text-black">|</span>
-              <button className="bg-transparent h-10 w-8 text-xs font-bold rounded">
-                2x
-              </button>
+            <div className="div-outer-for-border flex items-center border border-gray-600 rounded">
+              <div className="input-box-with-bitcoin flex-grow">
+                <input
+                  type="number"
+                  className="input-area w-full bg-transparent text-white p-2"
+                />
+              </div>
+              <div className="buttons-for-color flex items-center">
+                <button className="btn-into bg-transparent h-10 w-10 text-xs font-bold p-2 text-gray-300 hover:bg-gray-700 rounded">
+                  1/2
+                </button>
+                <span className="text-black mx-1 hover:cursor-pointer ">|</span>
+                <button className="btn-into bg-transparent h-10 w-10 text-xs font-bold p-2 text-gray-300 hover:bg-gray-700 rounded">
+                  2x
+                </button>
+              </div>
             </div>
           </div>
         </div>
-        <br />
-        <div className="input-boxex-2 border border-black">
-          <span className="ml-6">Mines</span>
-          <br />
-          <div className="div h-10 border border-b-amber-50">
+        <div className="input-boxes-2 mb-6">
+          <label htmlFor="mines-count" className="block text-gray-300 mb-2">
+            Mines
+          </label>
+          <div className="div-outer-for-border border rounded">
             <select
               name="mines-count"
               id="mines-count"
-              className="drop-down h-10 ml-6 w-60 text-white"
+              className="drop-down w-full bg-gray-700 text-white p-2 rounded-md"
+              onChange={countBomb}
+              value={bombcount1}
             >
-              <option value="mines-count">1</option>
-              <option value="mines-count">2</option>
-              <option value="mines-count">3</option>
-              <option value="mines-count">4</option>
-              <option value="mines-count">5</option>
-              <option value="mines-count">6</option>
-              <option value="mines-count">7</option>
-              <option value="mines-count">8</option>
-              <option value="mines-count">9</option>
-              <option value="mines-count">10</option>
-              <option value="mines-count">11</option>
-              <option value="mines-count">12</option>
-              <option value="mines-count">13</option>
-              <option value="mines-count">14</option>
-              <option value="mines-count">15</option>
-              <option value="mines-count">16</option>
-              <option value="mines-count">17</option>
-              <option value="mines-count">18</option>
-              <option value="mines-count">19</option>
-              <option value="mines-count">20</option>
-              <option value="mines-count">21</option>
-              <option value="mines-count">22</option>
-              <option value="mines-count">23</option>
-              <option value="mines-count">24</option>
+              {[...Array(24)].map((_, i) => (
+                <option key={i} value={i + 1}>
+                  {i + 1}
+                </option>
+              ))}
             </select>
           </div>
         </div>
+
         <div className="button-bet">
-          <button>Bet</button>
+          <button className="bet-button w-full bg-green-700 text-white py-3 rounded-md transition duration-300">
+            Bet
+          </button>
         </div>
       </div>
     </>
