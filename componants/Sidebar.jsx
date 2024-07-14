@@ -4,12 +4,6 @@ import CardBox from "./CardBox";
 import "../src/index.css";
 
 function Sidebar({ bombcount, setBombcount }) {
-  const [bombcount1, setBombcount1] = useState(1);
-  function countBomb(event) {
-    const newValue = Number(event.target.value);
-    console.log("New value selected:", newValue);
-    setBombcount1(newValue);
-  }
   return (
     <>
       <div className="side-bar bg-gray-800 p-6 rounded-lg shadow-lg">
