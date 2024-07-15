@@ -1,8 +1,10 @@
 import "../src/index.css";
-
+import mineSound from "../sound/mine-sound.mp3";
+import bombSound from "../sound/bomb-sound.mp3";
 function Card({ imgs, click, id }) {
-  
   function flipCard(event) {
+    const mineAudio = new Audio(mineSound);
+    const bombAudio = new Audio(bombSound);
     const button = event.currentTarget;
     const img = event.currentTarget.querySelector("img");
     button.style.backgroundColor = "rgb(30,30,30)";
@@ -11,16 +13,35 @@ function Card({ imgs, click, id }) {
       img.style.transform === "rotateY(0deg)"
         ? button.disable == true
         : "rotateY(0deg)";
+    mineAudio.play();
     if (id === 0) {
       alert("Bomb is done");
+      mineAudio.pause();
+      bombAudio.play();
       const allButtons = document.querySelectorAll(".card-info");
       allButtons.forEach((btn) => {
         btn.disabled = true;
       });
-      setTimeout(reloadFn, 3000);
+      // setTimeout(reloadFn, 3000);
+      setTimeout(resetCard, 2000);
+      revealAllCards();
     }
     function reloadFn() {
       window.location.reload();
+    }
+    function revealAllCards() {
+      const allButtons = document.querySelectorAll(".card-info");
+      allButtons.forEach((btn) => {
+        const img = btn.querySelector("img");
+        // TODO: change color when flip all the cards light dim all the cards
+        btn.style.backgroundColor = "rgb(30,30,30)";
+        btn.style.border = "0px";
+        img.style.transform = "rotateY(0deg)";
+      });
+    }
+    function resetCard() {
+      const img = event.currentTarget.querySelectorAll("img");
+      console.log(img);
     }
   }
 
