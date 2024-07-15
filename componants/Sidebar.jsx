@@ -4,11 +4,6 @@ import CardBox from "./CardBox";
 import "../src/index.css";
 
 function Sidebar() {
-
-  function halfBet() {
-    
-  }
-
   return (
     <>
       <div className="side-bar bg-gray-800 p-6 rounded-lg shadow-lg">
