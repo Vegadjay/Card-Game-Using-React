@@ -1,9 +1,27 @@
 import { useState } from "react";
 import bitcoin from "../imgs/bitcoin.svg";
 import CardBox from "./CardBox";
+
 import "../src/index.css";
 
 function Sidebar() {
+
+  const [money, moneyUpdate] = useState(0);
+  // ! This fun is half the money
+
+  const halfMoney = () => {
+    var newval = money * 0.5;
+    moneyUpdate(newval);
+  };
+  // ! This fun is double the money
+
+  const doubleMoney = () => {
+    var newval = money * 2;
+    moneyUpdate(newval);
+  };
+  const countValue = (event) => {
+    moneyUpdate(event.target.value);
+  };
   return (
     <>
       <div className="side-bar bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -18,14 +36,22 @@ function Sidebar() {
                 <input
                   type="number"
                   className="input-area w-full bg-transparent text-white p-2"
+                  value={money}
+                  onChange={countValue}
                 />
               </div>
               <div className="buttons-for-color flex items-center">
-                <button className="btn-into bg-transparent h-10 w-10 text-xs font-bold p-2 text-gray-300 hover:bg-gray-700 rounded">
+                <button
+                  className="btn-into bg-transparent h-10 w-10 text-xs font-bold p-2 text-gray-300 hover:bg-gray-700 rounded"
+                  onClick={halfMoney}
+                >
                   1/2
                 </button>
                 <span className="text-black mx-1 hover:cursor-pointer ">|</span>
-                <button className="btn-into bg-transparent h-10 w-10 text-xs font-bold p-2 text-gray-300 hover:bg-gray-700 rounded">
+                <button
+                  className="btn-into bg-transparent h-10 w-10 text-xs font-bold p-2 text-gray-300 hover:bg-gray-700 rounded"
+                  onClick={doubleMoney}
+                >
                   2x
                 </button>
               </div>
