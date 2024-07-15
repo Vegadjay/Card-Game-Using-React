@@ -4,7 +4,7 @@ import Card from "./Card";
 import Sidebar from "./Sidebar";
 import { useState, useEffect, useCallback, useMemo } from "react";
 
-function CardBox({ bombCount1 }) {
+function CardBox({ bombCount1 = 1 }) {
   useEffect(() => {
     console.log("In card Componant Bomb is changed: ", bombCount1);
   }, [bombCount1]);
@@ -20,7 +20,8 @@ function CardBox({ bombCount1 }) {
     return initialCards;
   }, [bombCount1]);
 
-  const [gameCards, setGameCards] = useState(cards);4
+  const [gameCards, setGameCards] = useState(cards);
+  4;
 
   useEffect(() => {
     setGameCards(cards);

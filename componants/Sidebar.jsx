@@ -3,7 +3,12 @@ import bitcoin from "../imgs/bitcoin.svg";
 import CardBox from "./CardBox";
 import "../src/index.css";
 
-function Sidebar({ bombcount, setBombcount }) {
+function Sidebar() {
+
+  function halfBet() {
+    
+  }
+
   return (
     <>
       <div className="side-bar bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -41,8 +46,6 @@ function Sidebar({ bombcount, setBombcount }) {
               name="mines-count"
               id="mines-count"
               className="drop-down w-full bg-gray-700 text-white p-2 rounded-md"
-              onChange={countBomb}
-              value={bombcount1}
             >
               {[...Array(24)].map((_, i) => (
                 <option key={i} value={i + 1}>
