@@ -5,15 +5,14 @@ import CardBox from "./CardBox";
 import "../src/index.css";
 
 function Sidebar() {
-
   const [money, moneyUpdate] = useState(0);
-  // ! This fun is half the money
+  // ! This fn is half the money
 
   const halfMoney = () => {
     var newval = money * 0.5;
     moneyUpdate(newval);
   };
-  // ! This fun is double the money
+  // ! This fn is double the money
 
   const doubleMoney = () => {
     var newval = money * 2;
@@ -35,10 +34,13 @@ function Sidebar() {
               <div className="input-box-with-bitcoin flex-grow">
                 <input
                   type="number"
-                  className="input-area w-full bg-transparent text-white p-2"
+                  className="input-area w-40 bg-transparent text-white p-2"
                   value={money}
                   onChange={countValue}
                 />
+              </div>
+              <div className="coin absolute left-80">
+                <img src={bitcoin} alt="bticoin img" height={15} width={15} />
               </div>
               <div className="buttons-for-color flex items-center">
                 <button
