@@ -22,7 +22,7 @@ function Card({ imgs, click, id }) {
       allButtons.forEach((btn) => {
         btn.disabled = true;
       });
-      // setTimeout(reloadFn, 3000);
+      setTimeout(reloadFn, 3000);
       setTimeout(resetCard, 2000);
       revealAllCards();
     }

@@ -4,21 +4,21 @@ import Card from "./Card";
 import Sidebar from "./Sidebar";
 import { useState, useEffect, useCallback, useMemo } from "react";
 
-function CardBox({ bombCount1 = 1 }) {
+function CardBox({ minesCount }) {
   useEffect(() => {
-    console.log("In card Componant Bomb is changed: ", bombCount1);
-  }, [bombCount1]);
+    console.log("In card Componant Bomb is changed: ", minesCount);
+  }, [minesCount]);
   const cards = useMemo(() => {
     const totalCards = 25;
-    const diamondCount = totalCards - bombCount1;
+    const diamondCount = totalCards - minesCount;
 
     const initialCards = [
       ...Array(diamondCount).fill({ id: 1, img: dimond, start: "" }),
-      ...Array(bombCount1).fill({ id: 0, img: bomb, start: "" }),
+      ...Array(minesCount).fill({ id: 0, img: bomb, start: "" }),
     ].sort(() => Math.random() - 0.5);
 
     return initialCards;
-  }, [bombCount1]);
+  }, [minesCount]);
 
   const [gameCards, setGameCards] = useState(cards);
   4;
