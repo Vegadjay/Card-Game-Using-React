@@ -6,7 +6,7 @@ function Sidebar({ onMinesCountChange }) {
   const [money, moneyUpdate] = useState(0);
   const [minesCount, setMinesCount] = useState(1);
   const [price, usePrice] = useState(0);
-  const [profitprice, useProfitprice] = useState(1);
+  const [profitprice, useProfitprice] = useState(0);
 
   // Half the money
   const halfMoney = () => {
@@ -35,8 +35,10 @@ function Sidebar({ onMinesCountChange }) {
     onMinesCountChange(newValue);
   };
 
-  function profitprice() {
-    
+  
+  function calcprofitprice() {
+    var profit = profitprice * 1.13;
+    useProfitprice(profit);
   }
 
   return (
@@ -115,7 +117,7 @@ function Sidebar({ onMinesCountChange }) {
             <input
               type="number"
               className="input-area1 w-60 bg-transparent text-white p-2"
-              value={money}
+              value={profitprice}
               disabled
             />
           </div>
