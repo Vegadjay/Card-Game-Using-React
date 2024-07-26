@@ -52,7 +52,7 @@
   font-size: 14px;
 }
 .coin {
-  left: 350px;
+  left: 400px;
 }
 .container {
   height: 450px;
@@ -131,4 +131,9 @@ button:hover {
 img {
   transition: transform 0.6s;
   transform-style: preserve-3d;
+}
+.input-area1 {
+  background-color: rgb(15, 33, 46);
+  border: 2px solid rgba(255, 255, 255, 0.183);
+  width: 300px;
 }

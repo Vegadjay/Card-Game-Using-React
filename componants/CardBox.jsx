@@ -1,7 +1,6 @@
 import dimond from "../imgs/dimond.svg";
 import bomb from "../imgs/bomb.svg";
 import Card from "./Card";
-import Sidebar from "./Sidebar";
 import { useState, useEffect, useCallback, useMemo } from "react";
 
 function CardBox({ minesCount }) {

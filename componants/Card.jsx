@@ -1,6 +1,7 @@
 import "../src/index.css";
 import mineSound from "../sound/mine-sound.mp3";
 import bombSound from "../sound/bomb-sound.mp3";
+import Swal from "sweetalert2";
 function Card({ imgs, click, id }) {
   function flipCard(event) {
     const mineAudio = new Audio(mineSound);
@@ -15,9 +16,14 @@ function Card({ imgs, click, id }) {
         : "rotateY(0deg)";
     mineAudio.play();
     if (id === 0) {
-      alert("Bomb is done");
       mineAudio.pause();
       bombAudio.play();
+      Swal.fire({
+        icon: "error",
+        title: "Better Luck Next Time",
+        text: "You Loose the game",
+        footer: '<a href="#">Play again</a>',
+      });
       const allButtons = document.querySelectorAll(".card-info");
       allButtons.forEach((btn) => {
         btn.disabled = true;

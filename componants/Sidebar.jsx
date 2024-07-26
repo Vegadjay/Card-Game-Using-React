@@ -6,6 +6,7 @@ function Sidebar({ onMinesCountChange }) {
   const [money, moneyUpdate] = useState(0);
   const [minesCount, setMinesCount] = useState(1);
   const [price, usePrice] = useState(0);
+  const [profitprice, useProfitprice] = useState(1);
 
   // Half the money
   const halfMoney = () => {
@@ -34,6 +35,10 @@ function Sidebar({ onMinesCountChange }) {
     onMinesCountChange(newValue);
   };
 
+  function profitprice() {
+    
+  }
+
   return (
     <>
       <div className="side-bar bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -51,7 +56,7 @@ function Sidebar({ onMinesCountChange }) {
               <div className="input-box-with-bitcoin flex-grow">
                 <input
                   type="number"
-                  className="input-area w-40 bg-transparent text-white p-2"
+                  className="input-area w-52 bg-transparent text-white p-2"
                   value={money}
                   onChange={countValue}
                 />
@@ -101,7 +106,21 @@ function Sidebar({ onMinesCountChange }) {
           </div>
         </div>
 
-        <div className="button-bet">
+        {/* Profit buttons */}
+        <div className="profit-bars">
+          <span className="text-gray-300 proxima_nova_rgregular_line">
+            Profit Amout ({profitprice}X)
+          </span>
+          <div className="profit-bar-first">
+            <input
+              type="number"
+              className="input-area1 w-60 bg-transparent text-white p-2"
+              value={money}
+              disabled
+            />
+          </div>
+        </div>
+        <div className="button-bet mt-4">
           <button className="bet-button w-full bg-green-700 proxima_nova_rgregular_line text-white py-3 rounded-md transition duration-300">
             Bet
           </button>
