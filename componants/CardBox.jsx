@@ -26,7 +26,11 @@ function CardBox({ minesCount }) {
     setGameCards(cards);
   }, [cards]);
 
-  const handleClick = useCallback((id) => {}, []);
+  const handleClick = useCallback((id) => {
+    if(id == 1) {
+      
+    }
+  }, []);
 
   return (
     <div className="box">
