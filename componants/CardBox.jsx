@@ -3,10 +3,7 @@ import bomb from "../imgs/bomb.svg";
 import Card from "./Card";
 import { useState, useEffect, useCallback, useMemo } from "react";
 
-function CardBox({ minesCount }) {
-  useEffect(() => {
-    console.log("In card Componant Bomb is changed: ", minesCount);
-  }, [minesCount]);
+function CardBox({ minesCount, onCardClick }) {
   const cards = useMemo(() => {
     const totalCards = 25;
     const diamondCount = totalCards - minesCount;
@@ -20,17 +17,17 @@ function CardBox({ minesCount }) {
   }, [minesCount]);
 
   const [gameCards, setGameCards] = useState(cards);
-  4;
 
   useEffect(() => {
     setGameCards(cards);
   }, [cards]);
 
-  const handleClick = useCallback((id) => {
-    if(id == 1) {
-      
-    }
-  }, []);
+  const handleClick = useCallback(
+    (id) => {
+      onCardClick(id);
+    },
+    [onCardClick]
+  );
 
   return (
     <div className="box">
