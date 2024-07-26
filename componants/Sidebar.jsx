@@ -1,32 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import rupee from "../imgs/rupee.svg";
 import "../src/index.css";
 
-function Sidebar({ onMinesCountChange }) {
-  const [money, moneyUpdate] = useState(0);
+function Sidebar({
+  onMinesCountChange,
+  cardId,
+  openedCards,
+  betAmount,
+  onBetAmountChange,
+}) {
   const [minesCount, setMinesCount] = useState(1);
-  const [price, usePrice] = useState(0);
-  const [profitprice, useProfitprice] = useState(0);
+  const [profitMultiplier, setProfitMultiplier] = useState(1);
 
-  // Half the money
   const halfMoney = () => {
-    var newval = money * 0.5;
-    var moneyPrice = newval;
-    moneyUpdate(newval);
-    usePrice(moneyPrice);
+    const newAmount = betAmount * 0.5;
+    onBetAmountChange(newAmount);
   };
 
-  // Double the money
   const doubleMoney = () => {
-    var newval = money * 2;
-    var moneyPrice = newval;
-    moneyUpdate(newval);
-    usePrice(moneyPrice);
+    const newAmount = betAmount * 2;
+    onBetAmountChange(newAmount);
   };
 
-  const countValue = (event) => {
-    moneyUpdate(event.target.value);
-    usePrice(event.target.value);
+  const handleBetAmountChange = (event) => {
+    onBetAmountChange(Number(event.target.value));
   };
 
   const handleMinesCountChange = (event) => {
@@ -35,11 +32,13 @@ function Sidebar({ onMinesCountChange }) {
     onMinesCountChange(newValue);
   };
 
-  
-  function calcprofitprice() {
-    var profit = profitprice * 1.13;
-    useProfitprice(profit);
-  }
+  useEffect(() => {
+    setProfitMultiplier((prev) => prev * 1.13);
+  }, [openedCards]);
+
+  const calcProfitPrice = () => {
+    return (betAmount * profitMultiplier).toFixed(2);
+  };
 
   return (
     <>
@@ -51,7 +50,7 @@ function Sidebar({ onMinesCountChange }) {
                 Bet Amount
               </span>
               <span className="text-gray-300 proxima_nova_rgregular_line">
-                {price}₹
+                {betAmount}₹
               </span>
             </div>
             <div className="div-outer-for-border flex items-center border border-gray-600 rounded">
@@ -59,8 +58,8 @@ function Sidebar({ onMinesCountChange }) {
                 <input
                   type="number"
                   className="input-area w-52 bg-transparent text-white p-2"
-                  value={money}
-                  onChange={countValue}
+                  value={betAmount}
+                  onChange={handleBetAmountChange}
                 />
               </div>
               <div className="coin absolute">
@@ -108,16 +107,15 @@ function Sidebar({ onMinesCountChange }) {
           </div>
         </div>
 
-        {/* Profit buttons */}
         <div className="profit-bars">
           <span className="text-gray-300 proxima_nova_rgregular_line">
-            Profit Amout ({profitprice}X)
+            Profit Amount ({profitMultiplier.toFixed(2)}X)
           </span>
           <div className="profit-bar-first">
             <input
               type="number"
               className="input-area1 w-60 bg-transparent text-white p-2"
-              value={profitprice}
+              value={calcProfitPrice()}
               disabled
             />
           </div>
