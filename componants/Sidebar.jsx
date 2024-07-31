@@ -88,7 +88,7 @@ function Sidebar({
         <div className="input-boxes-2 mb-6">
           <label
             htmlFor="mines-count"
-            className="block  proxima_nova_rgregular_line text-gray-300 "
+            className="block proxima_nova_rgregular_line text-gray-300 "
           >
             Mines
           </label>
