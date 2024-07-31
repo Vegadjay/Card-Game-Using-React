@@ -38,7 +38,7 @@ function Sidebar({
   };
 
   useEffect(() => {
-    setProfitMultiplier(1.13 + openedCards * 0.13);
+    setProfitMultiplier(1.00 + openedCards * 0.13);
   }, [openedCards]);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ function Sidebar({
               <div className="input-box-with-bitcoin flex-grow">
                 <input
                   type="number"
-                  className="input-area w-52 bg-transparent text-white p-2"
+                  className="input-area bg-transparent text-white p-2"
                   value={amount}
                   onChange={handleBetAmountChange}
                 />
