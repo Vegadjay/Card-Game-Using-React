@@ -169,21 +169,55 @@ img {
 
 @media (max-width:885px) {
   .componants {
-    height: 500px;
-    width: 880px;
+    height: 820px;
+    width: 500px;
   } 
   .outer-compo {
-    gap:550px;
-    flex-direction: column-reverse;
+    gap:60px;
   }
   .card-info {
     height: 80px;
     width: 80px;
   }
   .side-bar {
-    height: 500px;
-    margin-left: -20px;
-    margin-top: -20px;
-    background-color: rgb(33, 55, 67);
+      height: 340px;
+      width: 500px;
+      margin-left: -20px;
+      margin-top: 470px;
+      background-color: rgb(33, 55, 67);
+    }
+}
+
+@media (max-width:500px) {
+  .componants {
+    height: 820px;
+    width: 500px;
+    margin-left: 80px;
+  }
+ .outer-compo {
+   gap: 60px;
+ }
+}
+
+@media (max-width:415px) {
+  .componants {
+    height: 820px;
+    width: 500px;
+    margin-left: 180px;
+  }
+
+  .outer-compo {
+    gap: 60px;
+  }
+}
+@media (max-width:315px) {
+  .componants {
+    height: 820px;
+    width: 500px;
+    margin-left: 280px;
+  }
+
+  .outer-compo {
+    gap: 60px;
   }
 }
