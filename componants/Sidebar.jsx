@@ -4,26 +4,31 @@ import "../src/index.css";
 
 function Sidebar({
   onMinesCountChange,
-  cardId,
   openedCards,
   betAmount,
   onBetAmountChange,
 }) {
   const [minesCount, setMinesCount] = useState(1);
-  const [profitMultiplier, setProfitMultiplier] = useState(1);
+  const [amount, setAmount] = useState(0);
+  const [profitMultiplier, setProfitMultiplier] = useState(1.13);
+  const [profitPrice, setProfitPrice] = useState(0);
 
   const halfMoney = () => {
-    const newAmount = betAmount * 0.5;
+    const newAmount = amount * 0.5;
+    setAmount(newAmount);
     onBetAmountChange(newAmount);
   };
 
   const doubleMoney = () => {
-    const newAmount = betAmount * 2;
+    const newAmount = amount * 2;
+    setAmount(newAmount);
     onBetAmountChange(newAmount);
   };
 
   const handleBetAmountChange = (event) => {
-    onBetAmountChange(Number(event.target.value));
+    const newAmount = Number(event.target.value);
+    setAmount(newAmount);
+    onBetAmountChange(newAmount);
   };
 
   const handleMinesCountChange = (event) => {
@@ -33,12 +38,12 @@ function Sidebar({
   };
 
   useEffect(() => {
-    setProfitMultiplier((prev) => prev * 1.13);
+    setProfitMultiplier(1.13 + openedCards * 0.13);
   }, [openedCards]);
 
-  const calcProfitPrice = () => {
-    return (betAmount * profitMultiplier).toFixed(2);
-  };
+  useEffect(() => {
+    setProfitPrice((amount * profitMultiplier).toFixed(2));
+  }, [amount, profitMultiplier]);
 
   return (
     <>
@@ -50,7 +55,7 @@ function Sidebar({
                 Bet Amount
               </span>
               <span className="text-gray-300 proxima_nova_rgregular_line">
-                {betAmount}₹
+                {amount}₹
               </span>
             </div>
             <div className="div-outer-for-border flex items-center border border-gray-600 rounded">
@@ -58,12 +63,9 @@ function Sidebar({
                 <input
                   type="number"
                   className="input-area w-52 bg-transparent text-white p-2"
-                  value={betAmount}
+                  value={amount}
                   onChange={handleBetAmountChange}
                 />
-              </div>
-              <div className="coin absolute">
-                <img src={rupee} alt="bitcoin img" height={20} width={20} />
               </div>
               <div className="buttons-for-color flex items-center">
                 <button
@@ -115,7 +117,7 @@ function Sidebar({
             <input
               type="number"
               className="input-area1 w-60 bg-transparent text-white p-2"
-              value={calcProfitPrice()}
+              value={profitPrice}
               disabled
             />
           </div>

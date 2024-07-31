@@ -51,9 +51,6 @@
   font-weight: 600;
   font-size: 14px;
 }
-.coin {
-  left: 400px;
-}
 .container {
   height: 450px;
   width: 450px;
@@ -90,6 +87,7 @@
   height: 670px;
   width: 1100px;
   padding: 20px;
+  display: flex;
 }
 .side-bar {
   height: 670px;
@@ -136,4 +134,56 @@ img {
   background-color: rgb(15, 33, 46);
   border: 2px solid rgba(255, 255, 255, 0.183);
   width: 300px;
+}
+.outer-compo {
+  gap:600px;
+}
+@media (max-width:1100px) {
+  .componants {
+    height: 670px;
+    width: 1000px;
+  } 
+  .outer-compo {
+    gap:550px;
+  }
+}
+@media (max-width:1000px) {
+  .componants {
+    height: 500px;
+    width: 880px;
+  } 
+  .outer-compo {
+    gap:550px;
+  }
+  .card-info {
+    height: 80px;
+    width: 80px;
+  }
+  .side-bar {
+    height: 500px;
+    margin-left: -20px;
+    margin-top: -20px;
+    background-color: rgb(33, 55, 67);
+  }
+}
+
+@media (max-width:885px) {
+  .componants {
+    height: 500px;
+    width: 880px;
+  } 
+  .outer-compo {
+    gap:550px;
+    flex-direction: column-reverse;
+  }
+  .card-info {
+    height: 80px;
+    width: 80px;
+  }
+  .side-bar {
+    height: 500px;
+    margin-left: -20px;
+    margin-top: -20px;
+    background-color: rgb(33, 55, 67);
+  }
 }
