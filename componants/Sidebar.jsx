@@ -13,6 +13,7 @@ function Sidebar({
   const [amount, setAmount] = useState(0);
   const [profitMultiplier, setProfitMultiplier] = useState(1.13);
   const [profitPrice, setProfitPrice] = useState(0);
+  const [betPlaced, setBetPlaced] = useState(false);
 
   const halfMoney = () => {
     const newAmount = amount * 0.5;
@@ -51,6 +52,13 @@ function Sidebar({
   useEffect(() => {
     setProfitPrice((amount * profitMultiplier).toFixed(2));
   }, [amount, profitMultiplier]);
+
+  const handleBetClick = () => {
+    if (amount > 0) {
+      setBetPlaced(true);
+      onBetButtonClick();
+    }
+  };
 
   return (
     <>
@@ -116,27 +124,25 @@ function Sidebar({
           </div>
         </div>
 
-        <div className="profit-bars">
-          <span className="text-gray-300 proxima_nova_rgregular_line">
-            Profit Amount ({profitMultiplier.toFixed(2)}X)
-          </span>
-          <div className="profit-bar-first">
-            <input
-              type="number"
-              className="input-area1 w-60 bg-transparent text-white p-2"
-              value={profitPrice}
-              disabled
-            />
+        {betPlaced && (
+          <div className="profit-bars">
+            <span className="text-gray-300 proxima_nova_rgregular_line">
+              Profit Amount ({profitMultiplier.toFixed(2)}X)
+            </span>
+            <div className="profit-bar-first">
+              <input
+                type="number"
+                className="input-area1 w-60 bg-transparent text-white p-2"
+                value={profitPrice}
+                disabled
+              />
+            </div>
           </div>
-        </div>
+        )}
         <div className="button-bet mt-4">
           <button
             className="bet-button w-full bg-green-700 proxima_nova_rgregular_line text-white py-3 rounded-md transition duration-300"
-            onClick={() => {
-              if (amount > 0) {
-                onBetButtonClick();
-              }
-            }}
+            onClick={handleBetClick}
           >
             Bet
           </button>

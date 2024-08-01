@@ -8,7 +8,6 @@ function App() {
   const [minesCount, setMinesCount] = useState(1);
   const [cardId, setCardId] = useState(null);
   const [openedCards, setOpenedCards] = useState(0);
-  const [betAmount, setBetAmount] = useState(0);
   const [canFlipCards, setCanFlipCards] = useState(false);
 
   const handleMinesCountChange = (newCount) => {
@@ -22,15 +21,8 @@ function App() {
     }
   };
 
-  const handleBetAmountChange = (newAmount) => {
-    setBetAmount(newAmount);
-    setCanFlipCards(false); // Reset canFlipCards whenever the bet amount changes
-  };
-
   const handleBetButtonClick = () => {
-    if (betAmount > 0) {
-      setCanFlipCards(true);
-    }
+    setCanFlipCards(true);
   };
 
   return (
@@ -42,8 +34,6 @@ function App() {
               onMinesCountChange={handleMinesCountChange}
               cardId={cardId}
               openedCards={openedCards}
-              betAmount={betAmount}
-              onBetAmountChange={handleBetAmountChange}
               onBetButtonClick={handleBetButtonClick}
             />
           </div>
