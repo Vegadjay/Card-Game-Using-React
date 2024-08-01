@@ -7,6 +7,7 @@ function Sidebar({
   openedCards,
   betAmount,
   onBetAmountChange,
+  onBetButtonClick,
 }) {
   const [minesCount, setMinesCount] = useState(1);
   const [amount, setAmount] = useState(0);
@@ -15,20 +16,26 @@ function Sidebar({
 
   const halfMoney = () => {
     const newAmount = amount * 0.5;
-    setAmount(newAmount);
-    onBetAmountChange(newAmount);
+    if (newAmount >= 1) {
+      setAmount(newAmount);
+      onBetAmountChange(newAmount);
+    }
   };
 
   const doubleMoney = () => {
     const newAmount = amount * 2;
-    setAmount(newAmount);
-    onBetAmountChange(newAmount);
+    if (newAmount >= 1) {
+      setAmount(newAmount);
+      onBetAmountChange(newAmount);
+    }
   };
 
   const handleBetAmountChange = (event) => {
     const newAmount = Number(event.target.value);
-    setAmount(newAmount);
-    onBetAmountChange(newAmount);
+    if (newAmount >= 1) {
+      setAmount(newAmount);
+      onBetAmountChange(newAmount);
+    }
   };
 
   const handleMinesCountChange = (event) => {
@@ -123,7 +130,14 @@ function Sidebar({
           </div>
         </div>
         <div className="button-bet mt-4">
-          <button className="bet-button w-full bg-green-700 proxima_nova_rgregular_line text-white py-3 rounded-md transition duration-300">
+          <button
+            className="bet-button w-full bg-green-700 proxima_nova_rgregular_line text-white py-3 rounded-md transition duration-300"
+            onClick={() => {
+              if (amount > 0) {
+                onBetButtonClick();
+              }
+            }}
+          >
             Bet
           </button>
         </div>

@@ -2,8 +2,9 @@ import dimond from "../imgs/dimond.svg";
 import bomb from "../imgs/bomb.svg";
 import Card from "./Card";
 import { useState, useEffect, useCallback, useMemo } from "react";
+import '../src/index.css';
 
-function CardBox({ minesCount, onCardClick }) {
+function CardBox({ minesCount, onCardClick, canFlipCards }) {
   const cards = useMemo(() => {
     const totalCards = 25;
     const diamondCount = totalCards - minesCount;
@@ -24,16 +25,18 @@ function CardBox({ minesCount, onCardClick }) {
 
   const handleClick = useCallback(
     (id) => {
-      onCardClick(id);
+      if (canFlipCards) {
+        onCardClick(id);
+      }
     },
-    [onCardClick]
+    [onCardClick, canFlipCards]
   );
 
   return (
     <div className="box">
       <div className="container box-side">
         {gameCards.map((card, index) => (
-          <Card key={index} imgs={card} id={card.id} click={handleClick} />
+          <Card key={index} imgs={card} id={card.id} click={handleClick} canFlipCards={canFlipCards} />
         ))}
       </div>
     </div>
