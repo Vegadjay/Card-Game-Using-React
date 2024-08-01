@@ -96,6 +96,7 @@
   background-color: rgb(33, 55, 67);
 }
 .input-area {
+  width: 210px;
   background-color: rgb(15, 33, 46);
 }
 .drop-down {
@@ -136,24 +137,24 @@ img {
   width: 300px;
 }
 .outer-compo {
-  gap:600px;
+  gap: 600px;
 }
-@media (max-width:1100px) {
+@media (max-width: 1100px) {
   .componants {
     height: 670px;
     width: 1000px;
-  } 
+  }
   .outer-compo {
-    gap:550px;
+    gap: 550px;
   }
 }
-@media (max-width:1000px) {
+@media (max-width: 1000px) {
   .componants {
     height: 500px;
     width: 880px;
-  } 
+  }
   .outer-compo {
-    gap:550px;
+    gap: 550px;
   }
   .card-info {
     height: 80px;
@@ -167,39 +168,45 @@ img {
   }
 }
 
-@media (max-width:885px) {
+@media (max-width: 885px) {
   .componants {
     height: 820px;
     width: 500px;
-  } 
+  }
   .outer-compo {
-    gap:60px;
+    gap: 60px;
+  }
+  .input-area {
+    width: 356px;
   }
   .card-info {
     height: 80px;
     width: 80px;
   }
   .side-bar {
-      height: 340px;
-      width: 500px;
-      margin-left: -20px;
-      margin-top: 470px;
-      background-color: rgb(33, 55, 67);
-    }
+    height: 340px;
+    width: 500px;
+    margin-left: -20px;
+    margin-top: 470px;
+    background-color: rgb(33, 55, 67);
+  }
+  .input-area1 {
+    width: 450px;
+  }
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
   .componants {
     height: 820px;
     width: 500px;
     margin-left: 80px;
   }
- .outer-compo {
-   gap: 60px;
- }
+  .outer-compo {
+    gap: 60px;
+  }
 }
 
-@media (max-width:415px) {
+@media (max-width: 415px) {
   .componants {
     height: 820px;
     width: 500px;
@@ -210,7 +217,7 @@ img {
     gap: 60px;
   }
 }
-@media (max-width:315px) {
+@media (max-width: 315px) {
   .componants {
     height: 820px;
     width: 500px;
