@@ -78,7 +78,7 @@ function Sidebar({
                 <input
                   type="number"
                   className="input-area bg-transparent text-white p-2"
-                  value={amount}
+                  placeholder={"0.000000"}
                   onChange={handleBetAmountChange}
                 />
               </div>
