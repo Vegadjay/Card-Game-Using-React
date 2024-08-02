@@ -105,6 +105,9 @@
 .buttons-for-color {
   background-color: rgb(47, 69, 83);
 }
+::-ms-input-placeholder {
+  color: white;
+}
 .box-side {
   height: auto;
   width: auto;
