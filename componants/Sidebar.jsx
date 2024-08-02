@@ -33,6 +33,7 @@ function Sidebar({
 
   const handleBetAmountChange = (event) => {
     const newAmount = Number(event.target.value);
+    setAmount(event.target.value);
     if (newAmount >= 1) {
       setAmount(newAmount);
       onBetAmountChange(newAmount);
@@ -78,7 +79,7 @@ function Sidebar({
                 <input
                   type="number"
                   className="input-area bg-transparent text-white p-2"
-                  placeholder={"0.000000"}
+                  value={amount}
                   onChange={handleBetAmountChange}
                 />
               </div>
