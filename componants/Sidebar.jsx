@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import rupee from "../imgs/rupee.svg";
 import "../src/index.css";
 
 function Sidebar({
