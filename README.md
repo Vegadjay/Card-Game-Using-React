@@ -2,7 +2,7 @@
 
 ![Mine Game Screenshot 1](./imgs/Img-1.png)
 
-##Live Link
+## Live Link
 
 https://minegame-by-jayvegad.netlify.app/
 
