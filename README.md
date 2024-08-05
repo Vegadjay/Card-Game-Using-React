@@ -2,6 +2,10 @@
 
 ![Mine Game Screenshot 1](./imgs/Img-1.png)
 
+##Live Link
+
+https://minegame-by-jayvegad.netlify.app/
+
 ## About the Game
 
 Mine Game is a faithful clone of the popular Minesweeper game from Stack. This project was developed as a learning exercise to improve React development skills and create a responsive user interface.
